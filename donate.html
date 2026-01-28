@@ -1,0 +1,62 @@
+<form id="donationForm">
+  <input type="text" id="donorName" placeholder="Your Name" required>
+  <input type="email" id="donorEmail" placeholder="Email" required>
+  <input type="number" id="amount" placeholder="Donation Amount ($)" required>
+  <select id="supportType" required>
+    <option value="">Select Support</option>
+    <option value="tree">Tree Planting</option>
+    <option value="pot">Classroom Potted Plants</option>
+    <option value="both">Both</option>
+  </select>
+  <button type="submit">Donate</button>
+</form>
+
+<div id="thankYouMessage" style="display:none; margin-top:1rem; padding:1rem; background:#e8f5e9; border-radius:8px; color:#2e7d32;"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  document.getElementById("donationForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent page reload
+
+    // Get form values
+    const name = document.getElementById("donorName").value.trim();
+    const email = document.getElementById("donorEmail").value.trim();
+    const amount = parseFloat(document.getElementById("amount").value);
+    const type = document.getElementById("supportType").value;
+
+    if (!name || !email || !amount || !type) {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    // Save donation in LocalStorage
+    const donation = {
+      name,
+      email,
+      amount,
+      type,
+      date: new Date().toLocaleDateString()
+    };
+
+    let donations = JSON.parse(localStorage.getItem("donations")) || [];
+    donations.push(donation);
+    localStorage.setItem("donations", JSON.stringify(donations));
+
+    // Show thank you message
+    const thankYouDiv = document.getElementById("thankYouMessage");
+    thankYouDiv.style.display = "block";
+    thankYouDiv.innerHTML = `✅ Thank you <strong>${name}</strong> for donating $${amount} for <strong>${type}</strong>! Redirecting to homepage...`;
+
+    // Clear the form
+    this.reset();
+
+    // Automatically redirect after 3 seconds
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 3000);
+
+  });
+
+});
+</script>

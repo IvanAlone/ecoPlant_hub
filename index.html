@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoPlant Hub | Green Classrooms, Green Communities</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+  <div class="container nav1">
+    <div class="logo">EcoPlant Hub</div>
+
+    <!-- Hamburger menu -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Desktop menu -->
+    <nav class="menu-desktop">
+      <a href="#about">About</a>
+      <a href="#how">How It Works</a>
+      <a href="#impact">Impact</a>
+      <a href="register.html">Join</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+  </div>
+
+  <!-- Mobile side menu -->
+  <nav class="menu-mobile" id="mobileMenu">
+    <button class="menu-close" id="menuClose">✖</button>
+    <a href="#about">About</a>
+    <a href="#how">How It Works</a>
+    <a href="#impact">Impact</a>
+    <a href="register.html">Join</a>
+    <a href="donate.html">Donate</a>
+  </nav>
+</header>
+
+
+  <!-- ================= HERO ================= -->
+ <section class="hero" id="hero">
+  <div class="hero-overlay">
+    <div class="container">
+      <h1>Green Classrooms, Green Communities</h1>
+      <p>
+        EcoPlant Hub is a climate-tech platform that 
+        <span id="animated-text"></span>
+      </p>
+      <a href="register.html" class="btn">Start Planting</a>
+    </div>
+  </div>
+</section>
+
+<section id="donators" class="container">
+  <h2>Our Donators</h2>
+  <div id="donatorList" class="cards"></div>
+</section>
+
+
+
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="container">
+    <h2>About EcoPlant Hub</h2>
+    <p>
+      EcoPlant Hub is a student-led environmental project designed to
+      combat climate change through tree planting, classroom potted plants,
+      and digital tracking of environmental impact.
+    </p>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section id="how" class="container">
+    <h2>How It Works</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>🌱 Plant a Tree</h3>
+        <p>
+          Community members and students plant trees and register
+          them on the platform.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🆔 Track with Tree ID</h3>
+        <p>
+          Each tree gets a unique ID to track location, type, and growth.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🏆 Compete & Grow</h3>
+        <p>
+          Leaderboards motivate individuals and groups to plant
+          and maintain more trees.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= IMPACT ================= -->
+  <section id="impact" class="container">
+    <h2>Our Climate Impact</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>🌍 Climate Action</h3>
+        <p>Reduced carbon emissions through increased green cover.</p>
+      </div>
+
+      <div class="card">
+        <h3>🏫 Healthy Learning</h3>
+        <p>Improved air quality in classrooms using potted plants.</p>
+      </div>
+
+      <div class="card">
+        <h3>🤝 Community Engagement</h3>
+        <p>Stronger collaboration between university and community.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ORDER A TREE ================= -->
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+   <footer>
+  <div class="footer-content">
+    <p>© 2026 EcoPlant Hub | Computer Science | BCS-GROUP2</p>
+
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    
+const words = [
+  "tracks tree planting,",
+  "supports eco-friendly classrooms,",
+  "empowers communities to fight climate change together."
+];
+
+let i = 0;
+let j = 0;
+let currentWord = '';
+let isDeleting = false;
+const speed = 100;
+const animatedText = document.getElementById("animated-text");
+
+function typeEffect() {
+  const fullWord = words[i];
+  
+  if (isDeleting) {
+    currentWord = fullWord.substring(0, j--);
+  } else {
+    currentWord = fullWord.substring(0, j++);
+  }
+
+  animatedText.textContent = currentWord;
+
+  if (!isDeleting && j === fullWord.length) {
+    // Wait 1 second at the end of word
+    setTimeout(() => { isDeleting = true; typeEffect(); }, 1000);
+    return;
+  }
+
+  if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % words.length; // Next word
+  }
+
+  setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
+}
+
+// Start animation
+typeEffect();
+
+
+
+
+
+// Array of background image URLs
+const bgImages = [
+  'images/1.jpeg',
+  'images/2.jpeg',
+  'images/3.jpeg',
+  'images/5.jpeg',
+  'images/6.jpeg',
+  'images/7.jpeg',
+  'images/11.jpeg',
+  'images/21.jpeg',
+  'images/31.jpeg',
+  'images/41.jpeg',
+  'images/51.jpeg',
+  'images/61.jpeg',
+  
+
+];
+
+let currentIndex = 0;
+const hero = document.getElementById("hero");
+
+function changeBackground() {
+  hero.style.backgroundImage = `url('${bgImages[currentIndex]}')`;
+  currentIndex = (currentIndex + 1) % bgImages.length;
+}
+
+// Initial background
+changeBackground();
+
+// Change every 5 seconds
+setInterval(changeBackground, 5000);
+
+
+// Function to render donators
+function renderDonators() {
+  const donations = JSON.parse(localStorage.getItem("donations")) || [];
+  const donatorListDiv = document.getElementById("donatorList");
+  
+  donatorListDiv.innerHTML = ""; // Clear existing content
+
+  if (donations.length === 0) {
+    donatorListDiv.innerHTML = "<p>No donators yet. Be the first to support us!</p>";
+  } else {
+    donations.forEach(donation => {
+      const card = document.createElement("div");
+      card.className = "card donator-card";
+      card.innerHTML = `
+        <h3>${donation.name}</h3>
+        <p><strong>Amount:</strong> $${donation.amount}</p>
+        <p><strong>Support Type:</strong> ${donation.type}</p>
+        <p><small>Donated on ${donation.date}</small></p>
+      `;
+      donatorListDiv.appendChild(card);
+    });
+  }
+}
+
+// Call the function on page load
+document.addEventListener("DOMContentLoaded", renderDonators);
+
+
+const menu = document.getElementById("menu");
+
+function openMenu() {
+  menu.style.right = "0"; // slide in
+}
+
+function closeMenu() {
+  menu.style.right = "-100%"; // hide off-screen
+}
+
+
+const mobileMenu = document.getElementById("mobileMenu");
+const menuToggle = document.getElementById("menuToggle");
+const menuClose = document.getElementById("menuClose");
+
+// Open menu
+menuToggle.addEventListener("click", () => {
+  mobileMenu.style.right = "0";
+});
+
+// Close menu with X button
+menuClose.addEventListener("click", () => {
+  mobileMenu.style.right = "-250px";
+});
+
+// Close menu if clicking outside
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    mobileMenu.style.right = "-250px";
+  }
+});
+
+
+
+function renderDonators() {
+  const donations = JSON.parse(localStorage.getItem("donations")) || [];
+  const donatorListDiv = document.getElementById("donatorList");
+  donatorListDiv.innerHTML = "";
+
+  if (donations.length === 0) {
+    donatorListDiv.innerHTML = "<p>No donators yet. Be the first to support us!</p>";
+  } else {
+    donations.forEach(donation => {
+      const card = document.createElement("div");
+      card.className = "card donator-card";
+      card.innerHTML = `
+        <h3>${donation.name}</h3>
+        <p><strong>Amount:</strong> $${donation.amount}</p>
+        <p><strong>Support Type:</strong> ${donation.type}</p>
+        <p><small>Donated on ${donation.date}</small></p>
+      `;
+      donatorListDiv.appendChild(card);
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", renderDonators);
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  document.getElementById("donationForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent page reload
+
+    // Get form values
+    const name = document.getElementById("donorName").value.trim();
+    const email = document.getElementById("donorEmail").value.trim();
+    const amount = parseFloat(document.getElementById("amount").value);
+    const type = document.getElementById("supportType").value;
+
+    if (!name || !email || !amount || !type) {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    // Save donation in LocalStorage
+    const donation = {
+      name,
+      email,
+      amount,
+      type,
+      date: new Date().toLocaleDateString()
+    };
+
+    let donations = JSON.parse(localStorage.getItem("donations")) || [];
+    donations.push(donation);
+    localStorage.setItem("donations", JSON.stringify(donations));
+
+    // Show thank you message
+    const thankYouDiv = document.getElementById("thankYouMessage");
+    thankYouDiv.style.display = "block";
+    thankYouDiv.innerHTML = `✅ Thank you <strong>${name}</strong> for donating $${amount} for <strong>${type}</strong>! Redirecting to homepage...`;
+
+    // Clear the form
+    this.reset();
+
+    // Automatically redirect after 3 seconds
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 3000);
+
+  });
+
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const orderForm = document.getElementById("orderTreeForm");
+  const orderMessage = document.getElementById("orderMessage");
+
+  if (orderForm) {
+    orderForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("orderName").value.trim();
+      const email = document.getElementById("orderEmail").value.trim();
+      const treeType = document.getElementById("treeTypeOrder").value;
+      const quantity = parseInt(document.getElementById("treeQuantity").value);
+
+      if (!name || !email || !treeType || quantity < 1) {
+        alert("Please fill in all fields correctly.");
+        return;
+      }
+
+      const order = {
+        name,
+        email,
+        treeType,
+        quantity,
+        date: new Date().toLocaleDateString(),
+        status: "Pending Planting"
+      };
+
+      let orders = JSON.parse(localStorage.getItem("treeOrders")) || [];
+      orders.push(order);
+      localStorage.setItem("treeOrders", JSON.stringify(orders));
+
+      orderMessage.style.display = "block";
+      orderMessage.innerHTML = `
+        ✅ Thank you <strong>${name}</strong>!  
+        Your order for <strong>${quantity}</strong> ${treeType}(s) has been received.
+      `;
+
+      orderForm.reset();
+    });
+  }
+});
+
+
+
+  </script>
+
+
+<a
+  href="https://wa.me/256784689633"
+  class="whatsapp-float"
+  target="_blank"
+  title="Chat with EcoPlant Hub on WhatsApp"
+>
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+
+</body>
+</html>

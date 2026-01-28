@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | EcoPlant Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav1">
+    <div class="logo">EcoPlant Hub</div>
+    <nav class="menu" style="display:flex;">
+      <a href="index.html">Home</a>
+      <a href="register.html">Register</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<div class="login-container">
+
+  <!-- USER LOGIN -->
+  <div class="login-box">
+    <h2>👤 User Login</h2>
+    <form id="userLoginForm">
+      <input type="email" id="userEmail" placeholder="Email" required>
+      <input type="password" id="userPassword" placeholder="Password" required>
+      <button type="submit">Login as User</button>
+    </form>
+  </div>
+
+  <!-- ADMIN LOGIN -->
+  <div class="login-box admin-box">
+    <h2>👑 Admin Login</h2>
+    <form id="adminLoginForm">
+      <input type="email" id="adminEmail" placeholder="Admin Email" required>
+      <input type="password" id="adminPassword" placeholder="Password" required>
+      <button type="submit">Login as Admin</button>
+    </form>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2026 EcoPlant Hub | Computer Science | BCS-GROUP2</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// USER LOGIN
+document.getElementById("userLoginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = userEmail.value;
+  const password = userPassword.value;
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find(u => u.email === email && u.password === password && u.role !== "admin");
+
+  if (!user) {
+    alert("Invalid user login!");
+    return;
+  }
+
+  localStorage.setItem("currentUser", JSON.stringify(user));
+  window.location.href = "dashboard.html";
+});
+
+// ADMIN LOGIN
+document.getElementById("adminLoginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = adminEmail.value;
+  const password = adminPassword.value;
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const admin = users.find(u => u.email === email && u.password === password && u.role === "admin");
+
+  if (!admin) {
+    alert("Invalid admin credentials!");
+    return;
+  }
+
+  localStorage.setItem("currentUser", JSON.stringify(admin));
+  window.location.href = "admin.html";
+});
+</script>
+
+
+<script>
+(function createAdminOnce() {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const adminExists = users.some(u => u.role === "admin");
+
+  if (!adminExists) {
+    users.push({
+      name: "System Admin",
+      email: "admin@ecoplanthub.com",
+      password: "admin123",
+      role: "admin"
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+    console.log("Admin account created");
+  }
+})();
+
+
+
+
+
+(function createAdminOnce() {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const adminExists = users.some(u => u.role === "admin");
+
+  if (!adminExists) {
+    users.push({
+      name: "System Admin",
+      email: "admin@ecoplanthub.com",
+      password: "admin123",
+      role: "admin"
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+    console.log("Admin account created");
+  }
+})();
+
+
+</script>
+
+
+<script src="js/login.js"></script>
+</body>
+</html>

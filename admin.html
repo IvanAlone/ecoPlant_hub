@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | EcoPlant Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="container nav1">
+    <div class="logo">EcoPlant Hub Admin</div>
+    <nav class="menu-desktop">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2>🛠 Admin Panel</h2>
+
+  <!-- CREATE ANNOUNCEMENT -->
+  <section>
+    <h3>📢 Create Announcement</h3>
+    <form id="announcementForm">
+      <input type="text" id="title" placeholder="Title" required><br><br>
+      <textarea id="message" placeholder="Message" required></textarea><br><br>
+      <button type="submit">Publish</button>
+    </form>
+  </section>
+
+  <!-- SAVED ANNOUNCEMENTS -->
+  <section>
+    <h3>📂 Saved Announcements</h3>
+    <div id="adminAnnouncementList"></div>
+  </section>
+
+  <hr>
+
+  <!-- TREE ORDERS -->
+  <section>
+    <h3>🌳 All Tree Orders</h3>
+    <div id="adminTreeOrders" class="cards-inline"></div>
+  </section>
+
+  <!-- POTTED PLANT ORDERS -->
+  <section>
+    <h3>🌱 All Potted Plant Orders</h3>
+    <div id="adminPlantOrders" class="cards-inline"></div>
+  </section>
+</main>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

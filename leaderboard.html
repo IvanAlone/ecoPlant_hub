@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard | EcoPlant Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav1">
+    <div class="logo">EcoPlant Hub</div>
+
+    <!-- Hamburger menu for mobile -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Desktop menu -->
+    <nav class="menu-desktop">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="plant-tree.html">Plant Tree</a>
+      <a href="donate.html">Donate</a>
+    </nav>
+  </div>
+
+  <!-- Mobile side menu -->
+  <nav class="menu-mobile" id="mobileMenu">
+    <button class="menu-close" id="menuClose">✖</button>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="plant-tree.html">Plant Tree</a>
+    <a href="donate.html">Donate</a>
+  </nav>
+</header>
+
+
+<main class="container">
+  <h2>🏆 EcoPlant Hub Leaderboard</h2>
+  <p>See who has planted the most trees!</p>
+
+  <div id="leaderboard" class="cards"></div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2026 EcoPlant Hub | Computer Science | BCS-GROUP2</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/leaderboard.js"></script>
+<script>
+// Highlight current page link
+const currentPage = window.location.pathname.split("/").pop();
+document.querySelectorAll(".nav .menu a").forEach(link => {
+  if(link.getAttribute("href") === currentPage) {
+    link.classList.add("active");
+  }
+});
+
+const mobileMenu = document.getElementById("mobileMenu");
+const menuToggle = document.getElementById("menuToggle");
+const menuClose = document.getElementById("menuClose");
+
+// Open menu
+menuToggle.addEventListener("click", () => {
+  mobileMenu.style.right = "0";
+});
+
+// Close menu with X button
+menuClose.addEventListener("click", () => {
+  mobileMenu.style.right = "-250px";
+});
+
+// Close menu if clicking outside
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    mobileMenu.style.right = "-250px";
+  }
+});
+
+</script>
+
+</body>
+</html>

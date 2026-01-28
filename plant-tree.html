@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant a Tree | EcoPlant Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+  <div class="container nav1">
+    <div class="logo">EcoPlant Hub</div>
+
+    <!-- Hamburger menu for mobile -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Desktop menu -->
+    <nav class="menu-desktop">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+       <a href="leaderboard.html">Leaderboard</a>
+    </nav>
+  </div>
+
+  <!-- Mobile side menu -->
+  <nav class="menu-mobile" id="mobileMenu">
+    <button class="menu-close" id="menuClose">✖</button>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="leaderboard.html">Leaderboard</a>
+  </nav>
+</header>
+
+  
+
+  <main class="container">
+    <h2>🌳 Register a Planted Tree</h2>
+
+    <form id="treeForm">
+      <input type="text" id="planterName" placeholder="Your Name" required>
+
+      <select id="treeType" required>
+        <option value="">Select Tree Type</option>
+        <option>Mvule (Milicia excelsa)</option>
+<option>Mahogany (Khaya anthotheca)</option>
+<option>Musizi (Maesopsis eminii)</option>
+<option>Shea tree (Vitellaria paradoxa)</option>
+<option>Ficus natalensis</option>
+<option>Ficus sycomorus (Sycamore fig)</option>
+<option>Grevillea robusta</option>
+<option>Eucalyptus grandis</option>
+<option>Eucalyptus camaldulensis</option>
+<option>Pine (Pinus caribaea)</option>
+<option>Pine (Pinus patula)</option>
+<option>Pine (Pinus oocarpa)</option>
+<option>Araucaria hunsteinii</option>
+<option>Terminalia superba</option>
+<option>Albizia coriaria</option>
+<option>Markhamia lutea</option>
+<option>Acacia hockii</option>
+<option>Acacia sieberiana</option>
+<option>Acacia polyacantha</option>
+<option>Prunus africana</option>
+<option>Warburgia ugandensis</option>
+<option>Croton macrostachyus</option>
+<option>Combretum molle</option>
+<option>Afzelia africana</option>
+<option>Entandrophragma cylindricum (Sapele)</option>
+<option>Entandrophragma utile</option>
+<option>Entandrophragma excelsum</option>
+<option>Chlorophora excelsa</option>
+<option>Albizia zygia</option>
+<option>Albizia grandibracteata</option>
+<option>Albizia gummifera</option>
+<option>Albizia chinensis</option>
+<option>Teak (Tectona grandis)</option>
+<option>Neem (Azadirachta indica)</option>
+<option>Jacaranda mimosifolia</option>
+<option>Delonix regia (Flame tree)</option>
+<option>Casuarina equisetifolia</option>
+<option>Markhamia platycalyx</option>
+<option>Terminalia brownii</option>
+<option>Terminalia ivorensis</option>
+<option>Terminalia catappa (Indian almond)</option>
+<option>Yellow Oleander (Cascabela thevetia)</option>
+<option>Pencil Cactus (Euphorbia tirucalli)</option>
+<option>Dracaena fragrans (Corn plant)</option>
+<option>Ricinodendron heudelotii (Njansang)</option>
+<option>Vitex doniana</option>
+<option>Prosopis juliflora</option>
+<option>Senna spectabilis</option>
+<option>Calliandra calothyrsus</option>
+<option>Leucaena leucocephala</option>
+<option>Gliricidia sepium</option>
+<option>Acrocarpus fraxinifolius</option>
+<option>Markhamia obtusifolia</option>
+<option>Khaya nyasica</option>
+<option>Khaya senegalensis</option>
+<option>Khaya grandifoliola</option>
+<option>Afrocarpus gracilior (East African yellowwood)</option>
+<option>Podocarpus latifolius</option>
+<option>Podocarpus falcatus</option>
+<option>Podocarpus milanjianus</option>
+<option>Podocarpus usambarensis</option>
+<option>Syzygium guineense</option>
+<option>Syzygium cuminii (Java plum)</option>
+<option>Syzygium cordatum</option>
+<option>Syzygium aromaticum (Clove tree)</option>
+<option>Artocarpus heterophyllus (Jackfruit)</option>
+<option>Mangifera indica (Mango)</option>
+<option>Persea americana (Avocado)</option>
+<option>Citrus sinensis (Orange)</option>
+<option>Citrus limon (Lemon)</option>
+<option>Citrus reticulata (Tangerine)</option>
+<option>Carica papaya (Papaya tree)</option>
+<option>Annona muricata (Soursop)</option>
+<option>Annona squamosa (Sugar apple)</option>
+<option>Annona reticulata (Custard apple)</option>
+<option>Psidium guajava (Guava)</option>
+<option>Cashew (Anacardium occidentale)</option>
+<option>Coffee tree (Coffea arabica)</option>
+<option>Cocoa tree (Theobroma cacao)</option>
+<option>Banana (Musa spp.)</option>
+<option>Oil palm (Elaeis guineensis)</option>
+<option>Bamboo (various species)</option>
+      </select>
+
+      <input type="text" id="location" placeholder="Planting Location" required>
+
+      <button type="submit">Register Tree</button>
+    </form>
+
+    <div id="result" class="card" style="margin-top:1rem; display:none;"></div>
+  </main>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2026 EcoPlant Hub | Computer Science | BCS-GROUP2</p>
+
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+<script>
+// Check if user is logged in
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!currentUser) {
+  alert("⚠️ You must log in to plant a tree!");
+  window.location.href = "login.html";
+}
+
+// Tree planting form
+document.getElementById("treeForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const treeType = document.getElementById("treeType").value;
+  const location = document.getElementById("location").value;
+
+  const treeId = generateTreeId();
+
+  const tree = {
+    id: treeId,
+    planter: currentUser.username,
+    email: currentUser.email,
+    type: treeType,
+    location: location,
+    date: new Date().toLocaleDateString(),
+    status: "Growing"
+  };
+
+  let trees = JSON.parse(localStorage.getItem("trees")) || [];
+  trees.push(tree);
+  localStorage.setItem("trees", JSON.stringify(trees));
+
+  // Update user’s treesPlanted count
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const userIndex = users.findIndex(u => u.email === currentUser.email);
+  if (userIndex !== -1) {
+    users[userIndex].treesPlanted += 1;
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
+  }
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.innerHTML = `
+    <h3>✅ Tree Registered Successfully</h3>
+    <p><strong>Tree ID:</strong> ${treeId}</p>
+    <p><strong>Status:</strong> Growing</p>
+  `;
+
+  this.reset();
+});
+
+function generateTreeId() {
+  const random = Math.floor(1000 + Math.random() * 9000);
+  return `EPH-TREE-${random}`;
+}
+
+// Assign badges based on trees planted
+function assignBadges(user) {
+  const badges = [];
+
+  if (user.treesPlanted >= 5) badges.push("🌱 Green Sprout");
+  if (user.treesPlanted >= 10) badges.push("🌿 Young Sapling");
+  if (user.treesPlanted >= 20) badges.push("🌳 Tree Guardian");
+  if (user.treesPlanted >= 50) badges.push("🏆 Climate Hero");
+
+  user.badges = badges;
+}
+
+if (userIndex !== -1) {
+  users[userIndex].treesPlanted += 1;
+  assignBadges(users[userIndex]);   // <-- assign badges here
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
+}
+
+
+const mobileMenu = document.getElementById("mobileMenu");
+const menuToggle = document.getElementById("menuToggle");
+const menuClose = document.getElementById("menuClose");
+
+// Open menu
+menuToggle.addEventListener("click", () => {
+  mobileMenu.style.right = "0";
+});
+
+// Close menu with X button
+menuClose.addEventListener("click", () => {
+  mobileMenu.style.right = "-250px";
+});
+
+// Close menu if clicking outside
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    mobileMenu.style.right = "-250px";
+  }
+});
+
+
+</script>
+
+
+  <script src="js/trees.js"></script>
+</body>
+</html>

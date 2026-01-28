@@ -1,0 +1,1337 @@
+/* =========================
+   ECO PLANT HUB - GLOBAL RESET
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2933;
+  background-color: #f4fdf7;
+}
+
+/* =========================
+   GLOBAL ELEMENTS
+   ========================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* =========================
+   CONTAINER SYSTEM
+   ========================= */
+.container {
+  width: 100%;
+  padding: 1rem;
+  margin: auto;
+}
+
+/* =========================
+   HEADER & NAVIGATION
+   ========================= */
+header {
+  background: #0f3d2e;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7dff9a;
+}
+
+.menu {
+  display: none; /* mobile default */
+  flex-direction: column;
+  gap: 0.8rem;
+  background: #0f3d2e;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
+.menu a {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  background: none;
+  color: white;
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+.hero {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: linear-gradient(
+    rgba(15, 61, 46, 0.8),
+    rgba(15, 61, 46, 0.8)
+  ),
+  url("../images/2.jpeg") center/cover no-repeat;
+  color: #ffffff;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero .btn {
+  background: #7dff9a;
+  color: #0f3d2e;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* =========================
+   CARD SYSTEM
+   ========================= */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #0f3d2e;
+}
+
+/* =========================
+   FORMS (RESPONSIVE)
+   ========================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+input, select, textarea {
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form button {
+  background: #0f3d2e;
+  color: white;
+  padding: 0.7rem;
+  border-radius: 5px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+  background: #0f3d2e;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* =========================
+   TABLET BREAKPOINT
+   ========================= */
+@media (min-width: 600px) {
+  .menu {
+    width: 60%;
+    left: auto;
+    right: 0;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   DESKTOP BREAKPOINT
+   ========================= */
+@media (min-width: 900px) {
+  .menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    width: auto;
+    background: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .container {
+    max-width: 1100px;
+  }
+
+  .hero {
+    text-align: left;
+    padding: 4rem;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================
+   FOOTER WITH SOCIAL ICONS
+   ========================= */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: #7dff9a;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+/* Desktop layout */
+@media (min-width: 600px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+
+#animated-text::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+
+.badge-animation {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  animation: popBadge 1s ease forwards;
+  display: none;
+  z-index: 999;
+}
+
+@keyframes popBadge {
+  0% { transform: translateX(-50%) scale(0); opacity: 0; }
+  50% { transform: translateX(-50%) scale(1.3); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); /* semi-transparent overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+
+#donators {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+#donators h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+#donatorList .card {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #e0f7e9;
+  min-width: 200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+
+/* Donators Section */
+#donators {
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: #f2f9f5;
+}
+
+#donators h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2e7d32; /* dark green */
+}
+
+#donatorList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.donator-card {
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  min-width: 220px;
+  max-width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.donator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.donator-card h3 {
+  color: #1b5e20;
+  margin-bottom: 0.5rem;
+}
+
+.donator-card p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  color: #333;
+}
+
+.donator-card small {
+  color: #666;
+}
+
+
+
+
+
+
+/* Navigation Menu */
+
+
+/* Logo */
+.nav1 .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #72da77; /* same green */
+}
+
+/* Menu Links */
+.nav1 .menu a {
+  color: #2e7d32; /* same green as logo */
+  text-decoration: none;
+  margin-left: 1.5rem;
+  position: relative;
+  padding-bottom: 4px;
+  font-weight: 500;
+}
+
+/* Active or hover underline */
+.nav1 .menu a.active::after,
+.nav1 .menu a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #cbd811; /* underline same green */
+  border-radius: 2px;
+}
+
+/* Mobile Hamburger Button */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #2e7d32; /* same green */
+  cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .nav1 .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: center;
+  }
+
+  .nav .menu a {
+    margin: 1rem 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+/* Mobile Menu */
+.nav .menu {
+  display: flex; /* hidden by default for desktop */
+  flex-direction: column;
+  position: fixed; /* overlay */
+  top: 0;
+  right: -100%; /* hide initially off-screen */
+  width: 70%; /* smaller menu width */
+  height: 100%;
+  background-color: rgba(46, 125, 50, 0.95); /* semi-transparent green */
+  padding: 2rem 1rem;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+
+
+.nav.menu a {
+  margin: 1.2rem 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.menu-toggle {
+  display: none; /* only show on mobile */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #2e7d32;
+  cursor: pointer;
+}
+
+/* Close button */
+.menu-close {
+  align-self: flex-end;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav .menu {
+    display: flex;
+  }
+}
+
+
+/* Desktop Menu */
+.menu-desktop {
+  display: flex;
+}
+
+.menu-desktop a {
+  color: #2e7d32;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.menu-desktop a.active::after,
+.menu-desktop a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2e7d32;
+}
+
+/* Mobile Menu - hidden by default */
+.menu-mobile {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: -100%; /* hidden off-screen */
+  width: 70%;
+  height: 100%;
+  background-color: rgba(46,125,50,0.95);
+  padding: 2rem 1rem;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.menu-mobile a {
+  margin: 1.2rem 0;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* Close button */
+.menu-close {
+  align-self: flex-end;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+/* Responsive rules */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none; /* hide desktop menu on mobile */
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #2e7d32;
+    cursor: pointer;
+  }
+}
+
+
+/* Desktop Menu */
+.menu-desktop {
+  display: flex; /* must be flex, not none */
+}
+
+.menu-desktop a {
+  color: #2e7d32; /* same green as logo */
+  text-decoration: none;
+  margin-left: 1.5rem;
+  position: relative;
+  font-weight: 500;
+}
+
+.menu-desktop a.active::after,
+.menu-desktop a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #2e7d32;
+}
+
+
+/* Hamburger button hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile side menu */
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  right: -250px; /* hidden initially */
+  width: 200px; /* small side menu */
+  height: 100%;
+  background-color: rgba(46,125,50,0.95); /* transparent green */
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+/* Links inside mobile menu */
+.menu-mobile a {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Close button */
+.menu-close {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .menu-desktop {
+    display: none; /* hide desktop menu on small screens */
+  }
+}
+
+
+#potPlants form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+#potPlants input, #potPlants select, #potPlants button {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #2e7d32;
+}
+
+#potPlants button {
+  background-color: #2e7d32;
+  color: white;
+  cursor: pointer;
+}
+
+#potPlants button:hover {
+  background-color: #1b5e20;
+}
+
+
+
+
+.status {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.updateStatus {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #ffd700;
+  cursor: pointer;
+}
+
+.updateStatus:hover {
+  background-color: #ffc107;
+}
+
+
+
+
+/* Hamburger button hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Desktop menu */
+.menu-desktop a {
+  color: #72ee99;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Active/hover underline */
+.menu-desktop a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #ffd700;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Mobile side menu */
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  right: -250px; /* hidden initially */
+  width: 200px;
+  height: 100%;
+  background-color: rgba(83, 211, 89, 0.95);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.menu-mobile a {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-close {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+.notice-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.noticeboard .card {
+  background: #f1f8e9;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 28px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+
+.login-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.login-box {
+  background: #f1f8e9;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 300px;
+}
+
+.admin-box {
+  background: #e8f5e9;
+  border: 2px solid #2e7d32;
+}
+
+.login-box h2 {
+  margin-bottom: 1rem;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 0.7rem;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+
+.announcement-section {
+  position: fixed;
+  top: 90px;        /* below navbar */
+  right: 20px;     /* 👈 moved to right */
+  z-index: 999;
+  width: 340px;
+}
+
+
+@keyframes floatCard {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.announcement-card:hover {
+  transform: scale(1.03) translateY(-8px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+}
+
+
+.announcement-item {
+  background: rgba(255,255,255,0.15);
+  padding: 0.7rem;
+  margin-bottom: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.announcement-item:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+
+@media (max-width: 768px) {
+  .announcement-section {
+    position: static;
+    width: 100%;
+    margin: 1rem auto;
+  }
+}
+
+.announcement-card {
+  background: linear-gradient(
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.7)
+    ),
+    url("images/1.jpeg"); /* or your preferred background */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 1.3rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  
+  /* FLOATING ANIMATION */
+  animation: floatCard 2s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+
+.announcement-card {
+  background: linear-gradient(
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.6)
+    ),
+    url("images/1.jpeg"); /* you can change image */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.announcement-card h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 0.4rem;
+}
+
+.announcement-item {
+  background: rgba(255,255,255,0.12);
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+
+/* ===============================
+   INLINE BLOCK CARD LAYOUT
+   =============================== */
+
+.cards-inline {
+  width: 100%;
+}
+
+/* Each card */
+.inline-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
+  margin: 10px;
+  padding: 15px;
+  background: #ffffff;
+  border-left: 5px solid #2e7d32;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.inline-card strong {
+  color: #2e7d32;
+  font-size: 1.05rem;
+}
+
+.inline-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.inline-card small {
+  color: #666;
+  display: block;
+  margin-top: 6px;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .inline-card {
+    width: 90%;
+  }
+}
+
+.orders-flex {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap; /* stack on small screens */
+}
+
+.order-card {
+  flex: 1 1 300px; /* grow/shrink, min width 300px */
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.order-card h3 {
+  margin-bottom: 0.8rem;
+  color: #2e7d32;
+}
+
+.cards-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cards-inline .card {
+  display: inline-block;
+  min-width: 200px;
+  padding: 1rem;
+  background: #e8f5e9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* ------------------- */
+/* GENERAL STYLES */
+/* ------------------- */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+h2, h3 {
+  color: #2e7d32;
+}
+
+/* ------------------- */
+/* HEADER & NAVIGATION */
+/* ------------------- */
+header {
+  background-color: #1b5e20;
+  color: #fff;
+  padding: 1rem 0;
+  position: relative;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-desktop a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.menu-desktop a:hover {
+  text-decoration: underline;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.menu-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #2e7d32;
+  padding: 2rem 1rem;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 200;
+}
+
+.menu-mobile a {
+  display: block;
+  margin: 1rem 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-close {
+  display: block;
+  margin-bottom: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ------------------- */
+/* ANNOUNCEMENTS */
+/* ------------------- */
+.announcement-section {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 300px;
+  max-width: 90%;
+  z-index: 999;
+}
+
+.announcement-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ------------------- */
+/* CARDS & ORDER LISTS */
+/* ------------------- */
+.cards, .cards-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.cards-inline .card {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* ------------------- */
+/* FORMS */
+/* ------------------- */
+form {
+  background-color: #e8f5e9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #2e7d32;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #1b5e20;
+}
+
+/* Side-by-side forms for larger screens */
+.order-tree form,
+#potPlants form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.order-tree form input,
+.order-tree form select,
+#potPlants form input,
+#potPlants form select {
+  flex: 1 1 calc(50% - 1rem);
+}
+
+/* ------------------- */
+/* WHATSAPP FLOATING BUTTON */
+/* ------------------- */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  line-height: 60px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* ------------------- */
+/* RESPONSIVE MEDIA QUERIES */
+/* ------------------- */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .cards, .cards-inline {
+    flex-direction: column;
+  }
+
+  .order-tree form input,
+  .order-tree form select,
+  #potPlants form input,
+  #potPlants form select {
+    flex: 1 1 100%;
+  }
+
+  .announcement-section {
+    width: 90%;
+    right: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  header .logo {
+    font-size: 1.2rem;
+  }
+
+  .card {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | EcoPlant Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Form side-by-side */
+    .orders-flex {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .order-card {
+      flex: 1 1 300px;
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    /* Orders display inline */
+    .cards-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cards-inline .card {
+      display: inline-block;
+      min-width: 200px;
+      padding: 1rem;
+      background: #e8f5e9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Announcement card */
+    .announcement-card {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #fff9c4;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 250px;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .announcement-item {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4rem;
+    }
+    .announcement-item button {
+      margin-top: 0.3rem;
+      font-size: 0.7rem;
+      background: #e53935;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav1">
+    <div class="logo">EcoPlant Hub</div>
+    <nav class="menu-desktop">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html" id="logoutBtn">Logout</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Announcements -->
+<section class="announcement-card" style="background-color: rgba(0, 0, 0, 0.5);">
+  <h3>📢 Announcements</h3>
+  <div id="announcementList"><p>No announcements yet.</p></div>
+</section>
+
+<main class="container">
+  <h2>🌱 Welcome, <span id="username"></span>!</h2>
+
+  <!-- User stats -->
+  <div id="userStats" class="cards">
+    <div class="card">
+      <h3>Total Trees Planted</h3>
+      <p id="treesPlanted">0</p>
+    </div>
+    <div class="card" id="userBadges">
+      <h3>Your Badges</h3>
+      <p>No badges yet</p>
+    </div>
+  </div>
+
+  <section class="plant-tree-btn-section" style="margin: 2rem 0; text-align:center;">
+  <button id="plantTreeBtn" style="
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  ">
+    🌳 Plant a Tree
+  </button>
+</section>
+
+
+  <!-- Order Forms Side by Side -->
+  <section class="orders-flex">
+    <!-- TREE ORDER -->
+    <div class="order-card">
+      <h3>🌳 Order a Tree</h3>
+      <form id="orderTreeForm">
+        <select id="treeTypeOrder" required>
+          <option value="">Select Tree Type</option>
+          <option>Mahogany</option>
+          <option>Musizi</option>
+          <option>Shea tree</option>
+          <option>Ficus natalensis</option>
+          <option>Grevillea robusta</option>
+          <!-- add more as needed -->
+        </select>
+        <input type="number" id="treeQuantity" placeholder="Number of Trees" min="1" required>
+        <button type="submit">Order Tree</button>
+      </form>
+    </div>
+
+    <!-- POTTED PLANT ORDER -->
+    <div class="order-card">
+      <h3>🌱 Order a Potted Plant</h3>
+      <form id="potPlantForm">
+        <select id="plantType" required>
+          <option value="">--Choose Plant--</option>
+          <option value="Aloe Vera">Aloe Vera</option>
+          <option value="Snake Plant">Snake Plant</option>
+          <option value="Peace Lily">Peace Lily</option>
+          <option value="Money Plant">Money Plant</option>
+        </select>
+        <input type="number" id="quantity" min="1" placeholder="Number of plants" required>
+        <button type="submit">Order Plant</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Orders Display -->
+  <section>
+    <h3>🌳 My Tree Orders</h3>
+    <div id="userTreeOrders" class="cards-inline"></div>
+  </section>
+
+  <section>
+    <h3>🌿 My Potted Plant Orders</h3>
+    <div id="userPotOrders" class="cards-inline"></div>
+  </section>
+</main>
+<script>
+// PLANT TREE BUTTON
+const plantTreeBtn = document.getElementById("plantTreeBtn");
+if (plantTreeBtn) {
+  plantTreeBtn.addEventListener("click", () => {
+    // Redirect user to the tree order form section
+    window.location.href = "plant-tree.html";
+  });
+}
+</script>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
