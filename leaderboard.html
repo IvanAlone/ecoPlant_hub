@@ -44,6 +44,10 @@
 </main>
 
 <!-- Chat Section -->
+<!-- Chat Icon -->
+<div id="chatIcon" title="Open Community Chat">💬</div>
+
+<!-- Chat Box -->
 <div class="chat-box" id="chatBox">
   <h3>💬 Community Chat</h3>
   <div id="chatMessages" class="chat-messages">
@@ -54,6 +58,7 @@
     <button type="submit">Send</button>
   </form>
 </div>
+
 
 
 <footer>
@@ -143,6 +148,21 @@ menuClose.addEventListener("click", () => {
 document.addEventListener("click", (e) => {
   if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
     mobileMenu.style.right = "-250px";
+  }
+});
+const chatIcon = document.getElementById("chatIcon");
+const chatBox = document.getElementById("chatBox");
+
+// Toggle chat box visibility
+chatIcon.addEventListener("click", (e) => {
+  e.stopPropagation(); // Prevent triggering document click
+  chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+});
+
+// Hide chat box when clicking outside
+document.addEventListener("click", (e) => {
+  if (!chatBox.contains(e.target) && e.target !== chatIcon) {
+    chatBox.style.display = "none";
   }
 });
 
