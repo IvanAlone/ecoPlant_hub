@@ -158,3 +158,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "potOrders") renderPotOrders();
   });
 });
+// Get references
+const usernameEl = document.getElementById("username");
+const treesPlantedEl = document.getElementById("treesPlanted");
+const userBadgesEl = document.getElementById("userBadges");
+
+// Load current user from localStorage
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!currentUser) {
+  alert("⚠️ You must log in to access the dashboard!");
+  window.location.href = "login.html";
+} else {
+  displayUserStats(currentUser);
+  displayUserBadges(currentUser);
+}
