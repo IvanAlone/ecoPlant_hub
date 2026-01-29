@@ -11,12 +11,25 @@
 <header>
   <div class="container nav1">
     <div class="logo">EcoPlant Hub</div>
-    <nav class="menu" style="display:flex;">
-      <a href="index.html">Home</a>
+
+    <!-- Hamburger menu -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Desktop menu -->
+    <nav class="menu-desktop">
+     <a href="index.html">Home</a>
       <a href="login.html">Login</a>
     </nav>
   </div>
+
+  <!-- Mobile side menu -->
+  <nav class="menu-mobile" id="mobileMenu">
+    <button class="menu-close" id="menuClose">✖</button>
+   <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+  </nav>
 </header>
+
 
 <main class="container">
   <h2>📝 User Registration</h2>
@@ -50,6 +63,23 @@ const currentPage = window.location.pathname.split("/").pop();
 document.querySelectorAll(".nav .menu a").forEach(link => {
   if(link.getAttribute("href") === currentPage) {
     link.classList.add("active");
+  }
+});
+
+// Open menu
+menuToggle.addEventListener("click", () => {
+  mobileMenu.style.right = "0";
+});
+
+// Close menu with X button
+menuClose.addEventListener("click", () => {
+  mobileMenu.style.right = "-250px";
+});
+
+// Close menu if clicking outside
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    mobileMenu.style.right = "-250px";
   }
 });
 </script>
