@@ -1,4 +1,4 @@
-document.getElementById("registerForm").addEventListener("submit", function(e) {document.getElementById("registerForm").addEventListener("submit", function(e) {
+document.getElementById("registerForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const username = document.getElementById("username").value.trim();
@@ -35,5 +35,4 @@ function showMessage(msg, success) {
   result.style.color = success ? "#155724" : "#721c24";
   result.innerHTML = `<p>${msg}</p>`;
 }
-
 
