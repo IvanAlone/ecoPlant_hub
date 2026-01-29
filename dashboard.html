@@ -70,6 +70,11 @@
 <header>
   <div class="container nav1">
     <div class="logo">EcoPlant Hub</div>
+
+    <!-- Hamburger menu -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Desktop menu -->
     <nav class="menu-desktop">
       <a href="index.html">Home</a>
       <a href="dashboard.html">Dashboard</a>
@@ -77,6 +82,15 @@
       <a href="login.html" id="logoutBtn">Logout</a>
     </nav>
   </div>
+
+  <!-- Mobile side menu -->
+  <nav class="menu-mobile" id="mobileMenu">
+    <button class="menu-close" id="menuClose">✖</button>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html" id="logoutBtn">Logout</a>
+  </nav>
 </header>
 
 <!-- Announcements -->
@@ -172,6 +186,113 @@ if (plantTreeBtn) {
     window.location.href = "plant-tree.html";
   });
 }
+
+
+// Open menu
+menuToggle.addEventListener("click", () => {
+  mobileMenu.style.right = "0";
+});
+
+// Close menu with X button
+menuClose.addEventListener("click", () => {
+  mobileMenu.style.right = "-250px";
+});
+
+// Close menu if clicking outside
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    mobileMenu.style.right = "-250px";
+  }
+});
+
+// Get references
+const usernameEl = document.getElementById("username");
+const treesPlantedEl = document.getElementById("treesPlanted");
+const userBadgesEl = document.getElementById("userBadges");
+
+// Load current user from localStorage
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!currentUser) {
+  alert("⚠️ You must log in to access the dashboard!");
+  window.location.href = "login.html";
+} else {
+  // Display username
+  usernameEl.textContent = currentUser.username;
+
+  // Display trees planted
+  treesPlantedEl.textContent = currentUser.treesPlanted || 0;
+
+  // Display badges
+  if (currentUser.badges && currentUser.badges.length > 0) {
+    userBadgesEl.innerHTML = `<h3>Your Badges</h3><p>${currentUser.badges.join(" ")}</p>`;
+  } else {
+    userBadgesEl.innerHTML = `<h3>Your Badges</h3><p>No badges yet</p>`;
+  }
+}
+
+// LOGOUT BUTTON
+const logoutBtns = document.querySelectorAll("#logoutBtn");
+logoutBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    localStorage.removeItem("currentUser");
+  });
+});
+
+// TREE ORDERS AND POTTED PLANT ORDERS
+function displayOrders() {
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find(u => u.email === currentUser.email);
+
+  if (!user) return;
+
+  // Display tree orders
+  const treeOrdersEl = document.getElementById("userTreeOrders");
+  treeOrdersEl.innerHTML = "";
+  const trees = JSON.parse(localStorage.getItem("trees")) || [];
+  const userTrees = trees.filter(t => t.email === currentUser.email);
+  if (userTrees.length > 0) {
+    userTrees.forEach(tree => {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <p><strong>Tree ID:</strong> ${tree.id}</p>
+        <p><strong>Type:</strong> ${tree.type}</p>
+        <p><strong>Location:</strong> ${tree.location}</p>
+        <p><strong>Status:</strong> ${tree.status}</p>
+      `;
+      treeOrdersEl.appendChild(div);
+    });
+  } else {
+    treeOrdersEl.innerHTML = "<p>No tree orders yet.</p>";
+  }
+
+  // Display potted plant orders
+  const potOrdersEl = document.getElementById("userPotOrders");
+  potOrdersEl.innerHTML = "";
+  const potOrders = JSON.parse(localStorage.getItem("pottedPlants")) || [];
+  const userPots = potOrders.filter(p => p.email === currentUser.email);
+  if (userPots.length > 0) {
+    userPots.forEach(order => {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <p><strong>Plant:</strong> ${order.type}</p>
+        <p><strong>Quantity:</strong> ${order.quantity}</p>
+        <p><strong>Date:</strong> ${order.date}</p>
+      `;
+      potOrdersEl.appendChild(div);
+    });
+  } else {
+    potOrdersEl.innerHTML = "<p>No potted plant orders yet.</p>";
+  }
+}
+
+// Run on page load
+displayOrders();
+
+
+
 </script>
 
 <script src="js/dashboard.js"></script>
