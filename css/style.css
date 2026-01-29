@@ -81,6 +81,7 @@ header {
   left: 0;
   width: 100%;
   padding: 1rem;
+  
 }
 
 .menu a {
@@ -88,10 +89,11 @@ header {
   font-size: 1rem;
 }
 
+
 .menu-toggle {
   font-size: 1.5rem;
   background: none;
-  color: white;
+  color: rgb(194, 227, 124);
 }
 
 /* =========================
@@ -427,14 +429,6 @@ footer {
   color: #666;
 }
 
-
-
-
-
-
-/* Navigation Menu */
-
-
 /* Logo */
 .nav1 .logo {
   font-size: 1.8rem;
@@ -499,20 +493,7 @@ footer {
 
 
 /* Mobile Menu */
-.nav .menu {
-  display: flex; /* hidden by default for desktop */
-  flex-direction: column;
-  position: fixed; /* overlay */
-  top: 0;
-  right: -100%; /* hide initially off-screen */
-  width: 70%; /* smaller menu width */
-  height: 100%;
-  background-color: rgba(46, 125, 50, 0.95); /* semi-transparent green */
-  padding: 2rem 1rem;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
-  transition: right 0.3s ease;
-  z-index: 999;
-}
+
 
 
 
@@ -662,20 +643,7 @@ footer {
 }
 
 /* Mobile side menu */
-.menu-mobile {
-  position: fixed;
-  top: 0;
-  right: -250px; /* hidden initially */
-  width: 200px; /* small side menu */
-  height: 100%;
-  background-color: rgba(46,125,50,0.95); /* transparent green */
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
-  transition: right 0.3s ease;
-  z-index: 999;
-}
+
 
 /* Links inside mobile menu */
 .menu-mobile a {
@@ -787,22 +755,6 @@ footer {
   transition: width 0.3s ease;
 }
 
-/* Mobile side menu */
-.menu-mobile {
-  position: fixed;
-  top: 0;
-  right: -250px; /* hidden initially */
-  width: 200px;
-  height: 100%;
-  background-color: rgba(83, 211, 89, 0.95);
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
-  transition: right 0.3s ease;
-  z-index: 999;
-}
-
 .menu-mobile a {
   margin: 1rem 0;
   font-size: 1.1rem;
@@ -829,6 +781,8 @@ footer {
     display: block;
   }
 }
+
+
 
 
 .notice-form textarea {
@@ -913,13 +867,6 @@ footer {
 
 
 
-.announcement-section {
-  position: fixed;
-  top: 90px;        /* below navbar */
-  right: 20px;     /* 👈 moved to right */
-  z-index: 999;
-  width: 340px;
-}
 
 
 @keyframes floatCard {
@@ -975,6 +922,11 @@ footer {
   padding: 1.3rem;
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  width: 250px;
+  margin-top: 120px;
+  margin-right: 20px;
+  box-shadow: 0 2px;
+  
   
   /* FLOATING ANIMATION */
   animation: floatCard 2s ease-in-out infinite;
@@ -983,19 +935,6 @@ footer {
 
 
 
-.announcement-card {
-  background: linear-gradient(
-      rgba(0,0,0,0.6),
-      rgba(0,0,0,0.6)
-    ),
-    url("images/1.jpeg"); /* you can change image */
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  padding: 1.2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
 
 .announcement-card h3 {
   margin-bottom: 0.8rem;
@@ -1090,17 +1029,7 @@ footer {
 }
 
 
-/* ------------------- */
-/* GENERAL STYLES */
-/* ------------------- */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  background-color: #f7f7f7;
-  color: #333;
-}
+
 
 .container {
   width: 90%;
@@ -1135,18 +1064,186 @@ header .logo {
   margin-left: 1rem;
 }
 
-.menu-desktop a:hover {
-  text-decoration: underline;
+.tutorials-section {
+  padding: 3rem 1rem;
+  background-color: #f0f8f5;
+  text-align: center;
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
+.tutorials-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #2e7d32;
 }
+
+.tutorials-section p {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.tutorials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.tutorial-card {
+  flex: 1 1 300px;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.tutorial-card h3 {
+  margin-top: 0.8rem;
+  color: #2e7d32;
+}
+
+.tutorial-card iframe {
+  border-radius: 8px;
+}
+
+/* Hover effect */
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .tutorials-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+.chat-box {
+  position: fixed;
+  top: 120px;
+  right: 1rem;
+  width: 300px;
+  max-height: 400px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: slideSide 5s infinite alternate ease-in-out;
+  z-index: 9999;
+}
+
+
+.tutorials-section {
+  padding: 3rem 1rem;
+  background-color: #f0fdf4; /* light green background */
+  text-align: center;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.tutorials-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #2e7d32;
+}
+
+.tutorials-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.tutorials-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.tutorial-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 350px;
+  flex: 1 1 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.tutorial-card h4 {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  color: #2e7d32;
+}
+
+.chat-box h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
+.chat-messages p {
+  margin: 0.3rem 0;
+  padding: 0.3rem 0.5rem;
+  background: rgba(255,255,255,0.2);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+#chatForm {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#chatInput {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+#chatForm button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #2e7d32;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#chatForm button:hover {
+  background-color: #1b5e20;
+}
+
+/* Side-to-side animation */
+@keyframes slideSide {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
+  100% { transform: translateX(10px); }
+}
+
+
+
 
 .menu-mobile {
   display: none;
@@ -1177,25 +1274,6 @@ header .logo {
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
-}
-
-/* ------------------- */
-/* ANNOUNCEMENTS */
-/* ------------------- */
-.announcement-section {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  width: 300px;
-  max-width: 90%;
-  z-index: 999;
-}
-
-.announcement-card {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 /* ------------------- */
@@ -1273,29 +1351,6 @@ form button:hover {
   flex: 1 1 calc(50% - 1rem);
 }
 
-/* ------------------- */
-/* WHATSAPP FLOATING BUTTON */
-/* ------------------- */
-.whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 30px;
-  line-height: 60px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  z-index: 1000;
-  transition: transform 0.3s;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
 
 /* ------------------- */
 /* RESPONSIVE MEDIA QUERIES */
@@ -1333,5 +1388,354 @@ form button:hover {
 
   .card {
     font-size: 0.9rem;
+  }
+}
+
+
+
+
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f4fdf7;
+  color: #1f2933;
+  line-height: 1.6;
+}
+
+/* =========================
+   GLOBAL ELEMENTS
+========================= */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+/* =========================
+   HEADER & NAVIGATION
+========================= */
+header {
+  background: #1b5e20;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #7dff9a;
+}
+
+/* Desktop Menu */
+.menu-desktop {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu-desktop a {
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+}
+
+.menu-desktop a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffd700;
+  transition: width 0.3s ease;
+}
+
+.menu-desktop a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: #fff;
+}
+
+/* Mobile Menu */
+.menu-mobile {
+  position: fixed;
+  top: 120px;
+  right: -260px;
+  width: 150px;
+  height: fit-content;
+  background: rgba(5, 12, 5, 0.97);
+  padding: 4px 8px;
+  display: inline-block;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-radius: 5px;
+  transition: right 0.3s ease;
+  z-index: 999;
+  
+}
+
+.menu-mobile.active {
+  right: 0;
+}
+
+.menu-mobile a {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.menu-mobile a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #3498db;
+  transition: width o.8s ease;
+}
+
+.menu-mobile a:hover::after {
+  width: 100%;
+}
+
+.menu-close {
+  align-self: flex-end;
+  font-size: 1.8rem;
+  background: none;
+  color: #fff;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  min-height: 80vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6)),
+    url("images/2.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero .btn {
+  background: #7dff9a;
+  color: #0f3d2e;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* =========================
+   CARD SYSTEM
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+/* =========================
+   FORMS
+========================= */
+form {
+  background: #e8f5e9;
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background: #2e7d32;
+  color: #fff;
+  font-weight: bold;
+}
+
+form button:hover {
+  background: #1b5e20;
+}
+
+/* =========================
+   DONATORS
+========================= */
+#donators {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+#donatorList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.donator-card {
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  width: 230px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   ANNOUNCEMENTS
+========================= */
+.announcement-section {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  width: 320px;
+  z-index: 999;
+}
+
+.announcement-card {
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("images/1.jpeg") center/cover;
+  color: #fff;
+  padding: 1.2rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   WHATSAPP FLOAT
+========================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  background: #25D366;
+  color: #fff;
+  font-size: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: #1b5e20;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .announcement-section {
+    position: static;
+    width: 100%;
+    margin: 1rem auto;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
   }
 }
