@@ -176,28 +176,35 @@ document.getElementById("treeForm").addEventListener("submit", function (e) {
     status: "Growing"
   };
 
+  // Save tree to localStorage
   let trees = JSON.parse(localStorage.getItem("trees")) || [];
   trees.push(tree);
   localStorage.setItem("trees", JSON.stringify(trees));
 
-  // Update user’s treesPlanted count
+  // Update user’s treesPlanted count and badges
   let users = JSON.parse(localStorage.getItem("users")) || [];
   const userIndex = users.findIndex(u => u.email === currentUser.email);
   if (userIndex !== -1) {
-    users[userIndex].treesPlanted += 1;
+    users[userIndex].treesPlanted = (users[userIndex].treesPlanted || 0) + 1;
+
+    // Assign badges
+    const badges = [];
+    if (users[userIndex].treesPlanted >= 5) badges.push("🌱 Green Sprout");
+    if (users[userIndex].treesPlanted >= 10) badges.push("🌿 Young Sapling");
+    if (users[userIndex].treesPlanted >= 20) badges.push("🌳 Tree Guardian");
+    if (users[userIndex].treesPlanted >= 50) badges.push("🏆 Climate Hero");
+    users[userIndex].badges = badges;
+
+    // Update localStorage
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
   }
 
-  const result = document.getElementById("result");
-  result.style.display = "block";
-  result.innerHTML = `
-    <h3>✅ Tree Registered Successfully</h3>
-    <p><strong>Tree ID:</strong> ${treeId}</p>
-    <p><strong>Status:</strong> Growing</p>
-  `;
+  // Optional: show a quick success alert
+  alert(`✅ Tree Registered!\nTree ID: ${treeId}\nStatus: Growing`);
 
-  this.reset();
+  // Redirect to dashboard to show updated count
+  window.location.href = "dashboard.html";
 });
 
 function generateTreeId() {
@@ -205,50 +212,25 @@ function generateTreeId() {
   return `EPH-TREE-${random}`;
 }
 
-// Assign badges based on trees planted
-function assignBadges(user) {
-  const badges = [];
-
-  if (user.treesPlanted >= 5) badges.push("🌱 Green Sprout");
-  if (user.treesPlanted >= 10) badges.push("🌿 Young Sapling");
-  if (user.treesPlanted >= 20) badges.push("🌳 Tree Guardian");
-  if (user.treesPlanted >= 50) badges.push("🏆 Climate Hero");
-
-  user.badges = badges;
-}
-
-if (userIndex !== -1) {
-  users[userIndex].treesPlanted += 1;
-  assignBadges(users[userIndex]);   // <-- assign badges here
-  localStorage.setItem("users", JSON.stringify(users));
-  localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
-}
-
-
+// Mobile menu
 const mobileMenu = document.getElementById("mobileMenu");
 const menuToggle = document.getElementById("menuToggle");
 const menuClose = document.getElementById("menuClose");
 
-// Open menu
 menuToggle.addEventListener("click", () => {
   mobileMenu.style.right = "0";
 });
 
-// Close menu with X button
 menuClose.addEventListener("click", () => {
   mobileMenu.style.right = "-250px";
 });
 
-// Close menu if clicking outside
 document.addEventListener("click", (e) => {
   if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
     mobileMenu.style.right = "-250px";
   }
 });
-
-
 </script>
-
 
   <script src="js/trees.js"></script>
 </body>
